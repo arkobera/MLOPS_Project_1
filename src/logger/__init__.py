@@ -1,37 +1,44 @@
+import logging
 import os
 from logging.handlers import RotatingFileHandler
-import logging
 from from_root import from_root
 from datetime import datetime
 
+# Constants for log configuration
+LOG_DIR = 'log'
+LOG_FILE = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
+MAX_LOG_SIZE = 5 * 1024 * 1024  # 5 MB
+BACKUP_COUNT = 3  # Number of backup log files to keep
 
-# logging constants
-LOG_DIR = "log"
-LOG_FILE = f"database_{datetime.now().strftime('%Y-%m-%d')}.log"
-MAX_LOG_SIZE = 10 * 1024 * 1024  # 10 MB
-BACKUP_COUNT = 5  # Keep 5 backup log files
+# Construct log file path
+log_dir_path = os.path.join(from_root(), LOG_DIR)
+os.makedirs(log_dir_path, exist_ok=True)
+log_file_path = os.path.join(log_dir_path, LOG_FILE)
 
-#construct log file path
-LOG_FILE_PATH = os.path.join(from_root(), LOG_DIR)
-os.makedirs(LOG_FILE_PATH, exist_ok=True)
-LOG_FILE_PATH = os.path.join(LOG_FILE_PATH, LOG_FILE)
-
-def configure_logging():
+def configure_logger():
     """
-    Configures the logging settings for the application.
+    Configures logging with a rotating file handler and a console handler.
     """
+    # Create a custom logger
     logger = logging.getLogger()
     logger.setLevel(logging.DEBUG)
+    
+    # Define formatter
+    formatter = logging.Formatter("[ %(asctime)s ] %(name)s - %(levelname)s - %(message)s")
 
-    # Create a rotating file handler
-    handler = RotatingFileHandler(LOG_FILE_PATH, maxBytes=MAX_LOG_SIZE, backupCount=BACKUP_COUNT)
-    handler.setLevel(logging.DEBUG)
+    # File handler with rotation
+    file_handler = RotatingFileHandler(log_file_path, maxBytes=MAX_LOG_SIZE, backupCount=BACKUP_COUNT)
+    file_handler.setFormatter(formatter)
+    file_handler.setLevel(logging.DEBUG)
+    
+    # Console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+    console_handler.setLevel(logging.INFO)
+    
+    # Add handlers to the logger
+    logger.addHandler(file_handler)
+    logger.addHandler(console_handler)
 
-    # Create a formatter and set it for the handler
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    handler.setFormatter(formatter)
-
-    # Add the handler to the logger
-    logger.addHandler(handler)
-
-configure_logging() 
+# Configure the logger
+configure_logger()
