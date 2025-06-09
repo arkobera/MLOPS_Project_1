@@ -1,0 +1,36 @@
+columns:
+  - id: int
+  - Sex: category
+  - Age: int
+  - Height: float
+  - Weight: float
+  - Duration: float
+  - Heart_Rate: float
+  - Body_Temp: float
+  - Calories: float
+
+numerical_columns:
+  - Age
+  - Height
+  - Weight
+  - Duration
+  - Heart_Rate
+  - Body_Temp
+  - Calories
+
+categorical_columns:
+  - Sex
+
+drop_columns:
+  - id
+
+# for data transformation
+num_features:
+  - Age
+  - Height
+  - Weight
+  - Duration
+  - Heart_Rate
+
+mm_columns:
+  - Body_Temp

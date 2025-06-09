@@ -22,3 +22,5 @@ if __name__ == "__main__":
         # You can also log the error or handle it as needed
 
 
+# workflow 
+# Constants --> ConfigEntity --> ArtifactEntity --> Components --> Pipeline
