@@ -44,7 +44,7 @@ class DataTransformationConfig:
 class ModelTrainerConfig:
     model_trainer_dir: str = os.path.join(training_pipeline_config.artifact_dir, MODEL_TRAINER_DIR_NAME)
     trained_model_file_path: str = os.path.join(model_trainer_dir, MODEL_TRAINER_TRAINED_MODEL_DIR, MODEL_FILE_NAME)
-    #expected_accuracy: float = MODEL_TRAINER_EXPECTED_SCORE
+    expected_accuracy: float = MODEL_TRAINER_EXPECTED_SCORE
     model_config_file_path: str = MODEL_TRAINER_MODEL_CONFIG_FILE_PATH
     #device: str = MODEL_TRAINER_DEVICE
     max_depth: int = MODEL_TRAINER_MAX_DEPTH
@@ -54,6 +54,8 @@ class ModelTrainerConfig:
     learning_rate: float = MODEL_TRAINER_LEARNING_RATE
     random_state: int = MODEL_TRAINER_RANDOM_STATE
     eval_metric: str = MODEL_TRAINER_EVAL_METRIC
+    target: str = TARGET_COLUMN
+    folds: int = MODEL_FOLDS
 
 @dataclass
 class ModelEvaluationConfig:

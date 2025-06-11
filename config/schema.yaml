@@ -23,6 +23,7 @@ categorical_columns:
 
 drop_columns:
   - id
+  - _id
 
 # for data transformation
 num_features:

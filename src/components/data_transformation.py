@@ -120,6 +120,7 @@ class DataTransformation:
         """Drop the 'id' column if it exists."""
         logging.info("Dropping 'id' column")
         drop_cols = self._schema_config['drop_columns']
+        #print(df.head())
         df = df.drop(columns=drop_cols, errors='ignore')
         return df
 
@@ -135,6 +136,7 @@ class DataTransformation:
             # Load train and test data
             train_df = self.read_data(file_path=self.data_ingestion_artifact.trained_file_path)
             test_df = self.read_data(file_path=self.data_ingestion_artifact.test_file_path)
+            print(train_df.head())
             logging.info("Train-Test data loaded")
 
             input_feature_train_df = train_df.drop(columns=[TARGET_COLUMN], axis=1)

@@ -54,7 +54,7 @@ MODEL TRAINER related constant start with MODEL_TRAINER var name
 MODEL_TRAINER_DIR_NAME: str = "model_trainer"
 MODEL_TRAINER_TRAINED_MODEL_DIR: str = "trained_model"
 MODEL_TRAINER_TRAINED_MODEL_NAME: str = "xgb.pkl"
-#MODEL_TRAINER_EXPECTED_SCORE: float = 0.6
+MODEL_TRAINER_EXPECTED_SCORE: float = 0.06
 MODEL_TRAINER_MODEL_CONFIG_FILE_PATH: str = os.path.join("config", "model.yaml")
 MODEL_TRAINER_MAX_DEPTH: int = 8
 MODEL_TRAINER_COLSAMPLE_BYTREE: float = 0.9
@@ -63,6 +63,7 @@ MODEL_TRAINER_N_ESTIMATORS: int = 1500
 MODEL_TRAINER_LEARNING_RATE: float = 0.007
 MODEL_TRAINER_RANDOM_STATE: int = 0
 MODEL_TRAINER_EVAL_METRIC: str = "rmse"
+MODEL_FOLDS: int = 5
 
 """
 MODEL Evaluation related constants

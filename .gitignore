@@ -193,3 +193,4 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 artifact/
+MONGODB_URL.txt
