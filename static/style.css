@@ -1,0 +1,92 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f6f8;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff;
+    padding: 30px 24px 24px 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+label {
+    text-align: left;
+    color: #444;
+    font-weight: 600;
+    margin-bottom: 4px;
+    margin-top: 8px;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #cfd8dc;
+    border-radius: 5px;
+    font-size: 15px;
+    transition: border-color 0.2s;
+}
+
+input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.train-button {
+    background-color: #28a745;
+    margin-top: 18px;
+}
+
+.train-button:hover {
+    background-color: #218838;
+}
+
+.result {
+    margin-top: 28px;
+    padding: 16px;
+    background: #e3f2fd;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.result h2 {
+    color: #007bff;
+    margin: 0;
+    font-size: 1.3em;
+}
