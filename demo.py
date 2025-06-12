@@ -21,6 +21,10 @@ if __name__ == "__main__":
         print(f"An error occurred: {e}")
         # You can also log the error or handle it as needed
 
+# from src.constants import *
+
+# print(MODEL_TRAINER_EXPECTED_SCORE)
+
 
 # workflow 
 # Constants --> ConfigEntity --> ArtifactEntity --> Components --> Pipeline

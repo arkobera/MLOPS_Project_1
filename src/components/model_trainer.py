@@ -132,7 +132,7 @@ class ModelTrainer:
 
             # Check if the model's accuracy meets the expected threshold
             # if mean_squared_log_error(train_arr[:, -1], trained_model.predict(train_arr[:, :-1])) > self.model_trainer_config.expected_accuracy: # type: ignore
-            if metric_artifact.r2_score < self.model_trainer_config.expected_accuracy: # type: ignore
+            if metric_artifact.rmsle > self.model_trainer_config.expected_accuracy: # type: ignore
                 logging.info("Model performance is not better than the expected score.")
                 logging.info("No model found with score above the base score")
                 raise Exception("No model found with score above the base score")
